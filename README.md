@@ -79,6 +79,7 @@ LICENSE
     For non-research use, please contact:
     
         Hamdy Mubarak <hmubarak@hbku.edu.qa>
+	Kareem Darwish <kdarwish@hbku.edu.qa>
         Ahmed Abdelali <aabdelali@hbku.edu.qa>
     
     This library is distributed in the hope that it will be useful,
