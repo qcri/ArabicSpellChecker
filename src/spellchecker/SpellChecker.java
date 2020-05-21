@@ -34,6 +34,17 @@ public class SpellChecker {
     int totalUnigramFreq = 0;
     int totalBigramFreq = 0;
 
+    private static SpellChecker spell;
+    
+
+    public static synchronized SpellChecker getInstance() throws Exception{
+        if (spell == null) {
+            spell = new SpellChecker();
+        }
+        return spell;
+    }
+
+
     /**
      * @param args the command line arguments
      */
@@ -91,15 +102,16 @@ public class SpellChecker {
             
         System.err.print("Initializing the system ....");
         String[] words;
-        SpellChecker spell = new SpellChecker();
+        //SpellChecker spell = new SpellChecker();
         
         
         formatInput = false;
         formatOutput = false;//true for site display
         considerContext = true;
 
+        spell = new SpellChecker();
         //nofCorrectionEntries = spell.init("D:/SpellCheck/", considerContext);
-        nofCorrectionEntries = spell.init(considerContext);
+        //nofCorrectionEntries = spell.init(considerContext);
         
         //input = "ان الحياه دقائق وثوانى";
         //input = "وبحضاراته الشسيعة فقط,";// "يتحدثهاأكثر  بالحوارفعليك  وضعتهاايران";//  "الارهاربيةتنتظر"; //"مليوننسمة ثلاتة";
@@ -791,7 +803,9 @@ public class SpellChecker {
         
         return lm;
     }*/
-
+    public String spellCheck(String input){
+        return spellCheck(input, false, false,true);
+    }
     
     public String spellCheck(String input, boolean formatInput, boolean formatOutput, boolean considerContext)
     {
